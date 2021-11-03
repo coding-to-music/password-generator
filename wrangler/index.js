@@ -42,6 +42,7 @@ async function fetchWeather (city = 'Singapore', country = 'SG', lat, lon) {
     //Check country for fahrenheit preference
     const imperialCountries = ['US','BS', 'KY', 'LR', 'PW','FM', 'MI']
     const units = imperialCountries.includes(country) ? 'imperial' : 'metric'
+    const OPENWEATHER_KEY = "foobar"
     let query = lat && lon ? `lat=${lat}&lon=${lon}` : `q=${city}`
     let endpoint = `https://api.openweathermap.org/data/2.5/weather?${query}&units=${units}&appid=${OPENWEATHER_KEY}`
     const response = await fetch(endpoint)
