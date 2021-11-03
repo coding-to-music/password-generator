@@ -16,7 +16,7 @@ npm install -g yarn
 
 ### React
 
-```language
+```java
 cd src
 yarn start
 ```
@@ -25,12 +25,60 @@ yarn start
 
 ### Cloudflare workers
 
-```language
+```java
 cd wrangler
+```
+
 wrangler dev
+```java
+wrangler dev
+```
+
+Output
+```java
+wrangler dev
+👀  ./index.js 66:52
+Module parse failed: Unexpected token (66:52)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+| // MAIN FUCTION
+| async function handleRequest(request) {
+>   const openweather = await fetchWeather(request.cf?.city, request.cf?.country, request.cf?.latitude, request.cf?.longitude)
+|   const data =
+|     request.cf !== undefined ? {
+Error: webpack returned an error. You may be able to resolve this issue by running npm install.
+```
+
 wrangler secret put API_KEY  //Add secret
+```java
+wrangler secret put OPENWEATHER_KEY
+```
+
+Output
+```java
+Enter the secret text you'd like assigned to the variable OPENWEATHER_KEY on the script named password-generator:
+secretinfohere2ff9acfaf06d6
+🌀  Creating the secret for script name password-generator
+🌀  Worker password-generator doesn't exist in the API yet. Creating a draft Worker so we can create new secret.
+Error: No such file or directory (os error 2)
+```
+
+```java
 wrangler publish
 ```
+
+Output
+```java
+👀  ./index.js 66:52
+Module parse failed: Unexpected token (66:52)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+| // MAIN FUCTION
+| async function handleRequest(request) {
+>   const openweather = await fetchWeather(request.cf?.city, request.cf?.country, request.cf?.latitude, request.cf?.longitude)
+|   const data =
+|     request.cf !== undefined ? {
+Error: webpack returned an error. You may be able to resolve this issue by running npm install.
+```
+
 
 > see wrangler.toml
 
